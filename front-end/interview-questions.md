@@ -1,77 +1,77 @@
-Front End Job Interview Questions
+前端面试问题合集及解答
 ==
 
-Unlike typical software engineer job interviews, front end job interviews have less emphasis on algorithms and have more questions on intricate knowledge and expertise about the domain — HTML, CSS, JavaScript, just to name a few areas.
+不同于传统的软件工程师职位面试，前端职位面试较少注重算法层面的内容，更多是问一些关于 HTML、CSS 和 JavaScript 的专业知识。
 
-While there are some existing resources to help front end developers in preparing for interviews, they aren't as abundant as materials for a software engineer interview. Among the existing resources, probably the most helpful question bank would be [Front End Job Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Unfortunately, I couldn't find many complete and satisfactory answers for these questions online, hence here is my attempt at answering them. Being an open source repository, the project can live on with the support of the community as the state of web evolves.
+虽然已经有一些现有的资源来帮助前端开发者准备面试，但它们并没有帮助软件工程师面试的材料那么丰富。在现有的资源里，[Front End Job Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions) 大概算是最有帮助的问题合集了，不幸的是，我并没有在网上找到完整且令人满意的答案，所以在这篇文章里，我将尝试解答这些问题。作为一个开源仓库，希望本项目可以随着 Web 的发展，在社区的支持下存活下去。
 
-## Table of Contents
+## 目录
 
-  1. [HTML Questions](#html-questions)
-  1. [CSS Questions](#css-questions)
-  1. [JS Questions](#js-questions)
+  1. [HTML 问题](#html-questions)
+  1. [CSS 问题](#css-questions)
+  1. [JS 问题](#js-questions)
 
-## HTML Questions
+## HTML 问题
 
-Answers to [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions#html-questions). Pull requests for suggestions and corrections are welcome!
+这个部分是对 [Front-end Job Interview Questions - HTML Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions#html-questions) 的解答，欢迎提 Pull Request 进行建议和纠正！
 
-#### What does a `doctype` do?
+#### `doctype` 是做什么的？
 
-`doctype` is an abbreviation for document type. It is a declaration used in HTML5 to distinguish between a standards-compliant parsing mode and a quirks parsing mode. Hence its presence tells the browser to parse and render the webpage in standards mode.
+`doctype` 是 document type（文档类型）的缩写。它是一个声明，在 HTML5 里用它来区分标准解析模式和怪异解析模式。所以它的存在是告诉浏览器要在标准模式下解析和渲染 Web 页面。
 
-Moral of the story, just add `<!DOCTYPE html>` to the start of your page.
+说白了就是，只需把 `<!DOCTYPE html>` 添加到你的页面开头就行了。
 
-###### References
+###### 参考
 
 - https://stackoverflow.com/questions/7695044/what-does-doctype-html-do
 - https://www.w3.org/QA/Tips/Doctype
 
-#### What's the difference between full standards mode, almost standards mode and quirks mode?
+#### 完全标准模式、近乎标准模式和怪异模式的区别是什么？
 
-- **Quirks mode** - Layout emulates non-standard behavior in Netscape Navigator 4 and Internet Explorer 5. This is essential in order to support websites that were built before the widespread adoption of web standards. The list of quirks can be found [here](https://developer.mozilla.org/en-US/docs/Mozilla/Mozilla_quirks_mode_behavior).
-- **Full standards mode** - The layout behavior is the one described by the HTML and CSS specifications.
-- **Almost standards mode** - There are only a very small number of quirks implemented. Differences can be found [here](https://developer.mozilla.org/en-US/docs/Gecko's_Almost_Standards_Mode).
+- **怪异模式** - 布局会模拟在 Netscape Navigator 4 和 IE 5 中的非标准行为。为了支持那些在广泛采用 Web 标准之前建立的网站，这个模式很有必要。怪异模式的行为列表可以查看[这个链接](https://developer.mozilla.org/en-US/docs/Gecko's_Almost_Standards_Mode)。
+- **完全标准模式** - 在此模式下布局行为是由 HTML 和 CSS 规范描述的。
+- **近乎标准模式** - 这个模式只实现了很少一部分怪异行为，可以通过[这个链接](https://developer.mozilla.org/en-US/docs/Gecko's_Almost_Standards_Mode)查看区别。
 
-###### References
+###### 参考
 
 - https://developer.mozilla.org/en-US/docs/Quirks_Mode_and_Standards_Mode
 
-#### What's the difference between HTML and XHTML?
+#### HTML 和 XHTML 的区别是什么？
 
-XHTML belongs to the family of XML markups languages and is different from HTML. Some of differences are as follows:
+XHTML 属于 XML 标记语言，和 HTML 是不一样的。一些差异如下：
 
-- XHTML documents have to be well-formed, unlike HTML, which is more forgiving.
-- XHTML is case-sensitive for element and attribute names, while HTML is not.
-- Raw `<` and `&` characters are not allowed except inside of `CDATA` Sections (`<![CDATA[ ... ]]>`). JavaScript typically contains characters which can not exist in XHTML outside of CDATA Sections, such as the `<` operator. Hence it is tricky to use inline `styles` or `script` tags in XHTML and should be avoided.
-- A fatal parse error in XML (such as an incorrect tag structure) causes document processing to be aborted.
+- XHTML 文档必须结构完整良好，不像 HTML 的容错性那么高。
+- XHTML 的元素和属性名是大小写敏感的，而 HTML 不是。
+- 原始的 `<` 和 `&` 字符不允许单独出现，除非包含在 `CDATA` 块中（`<![CDATA[ ... ]]>`）。 而 JavaScript 通常会包含一些在 CDATA 块之外，不能存在于 XHTML 里的字符，比如 `<` 操作符。所以在 XHTML 里很难去使用内联的 `styles` 和 `script` 标签，而且应该避免使用。
+- 在 XML 里如果出现一个严重的解析错误（如一个错误的标签结构）将导致文档处理被中止。
 
-Full list of differences can be found on [Wikipedia](https://en.wikipedia.org/wiki/XHTML#Relationship_to_HTML).
+在[维基百科](https://en.wikipedia.org/wiki/XHTML#Relationship_to_HTML)上可以找到完整的差异列表。
 
-###### References
+###### 参考
 
 - https://developer.mozilla.org/en-US/docs/Archive/Web/Properly_Using_CSS_and_JavaScript_in_XHTML_Documents_
 - https://en.wikipedia.org/wiki/XHTML
 
-#### Are there any problems with serving pages as `application/xhtml+xml`?
+#### 服务页面类型为 `application/xhtml+xml` 的话会有什么问题？
 
-Basically the problems lie in the differences between parsing HTML and XML as mentioned above.
+基本上，问题还是在于解析 HTML 和 XML 之间的区别。
 
-- XHTML, or rather, XML syntax is less forgiving and if your page isn't fully XML-compliant, there will be parsing errors and users get unreadable content.
-- Serving your pages as `application/xhtml+xml` will cause Internet Explorer 8 to show a download dialog box for an unknown format instead of displaying your page, as the first version of Internet Explorer with support for XHTML is Internet Explorer 9.
+- XHTML，或者说 XML 的语法缺少容错性，如果你的页面不是完全兼容 XML 的话，就会有解析错误，而且用户会得到不可读的内容。
+- 将页面类型服务为 `application/xhtml+xml` 的话将导致 IE 8 展示一个未知格式文件的下载对话框，而不是展示你的页面，因为首个支持 XHTML 的 IE 浏览器是 IE 9。
 
-###### References
+###### 参考
 
 - https://developer.mozilla.org/en-US/docs/Quirks_Mode_and_Standards_Mode#XHTML
 
-#### How do you serve a page with content in multiple languages?
+#### 如何用多语言提供一个服务页面？
 
-The question is a little vague, I will assume that it is asking about the most common case, which is how to serve a page with content available in multiple languages, but the content within the page is only in a single language.
+这个问题有一点模糊，我将假设问的是最常见的情况，如何在多语言环境下服务页面是可用的，而页面里的内容还照样是单语言。
 
-When an HTTP request is made to a server, the requesting user agent usually sends information about language preferences, such as in the `Accept-Language` header. The server can then use this information to return a version of the document in the appropriate language if such an alternative is available. The returned HTML document should also declare the `lang` attribute in the `<html>` tag, such as `<html lang="en">...</html>`.
+当向服务器发出一个 HTTP 请求的时候，发出请求的用户代理通常还会发送关于语言偏好的信息，比如 header 里的 `Accept-Language` 字段。如果有可用的语言版本，服务器就会根据这个信息返回合适语言的文档版本。返回的 HTML 文档也应该在 `<html>` 标签里声明 `lang` 属性，比如 `<html lang="en">...</html>`。
 
-In the back end, the HTML markup will contain `i18n` placeholders and content for the specific language stored in YML or JSON formats. The server then dynamically generates the HTML page with content in that particular language, usually with the help of a back end framework.
+在后端，HTML 标记会包含 `i18n` 占位符，而且特定语言的内容会存储在 YML 或者 JSON 格式的文件当中。服务器通常就可以在后端框架的帮助下，动态地用特定语言内容来生成 HTML 页面。
 
-###### References
+###### 参考
 
 - https://www.w3.org/International/getting-started/language
 
