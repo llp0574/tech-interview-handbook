@@ -75,128 +75,127 @@ XHTML 属于 XML 标记语言，和 HTML 是不一样的。一些差异如下�
 
 - https://www.w3.org/International/getting-started/language
 
-#### What kind of things must you be wary of when designing or developing for multilingual sites?
+#### 在做多语言站点的设计或开发时，你必须注意哪些事情？
 
-- Use `lang` attribute in your HTML.
-- Directing users to their native language - Allow a user to change his country/language easily without hassle.
-- Text in images is not a scalable approach - Placing text in an image is still a popular way to get good-looking, non-system fonts to display on any computer. However to translate image text, each string of text will need to have it's a separate image created for each language. Anything more than a handful of replacements like this can quickly get out of control.
-- Restrictive words / sentence length - Some content can be longer when written in another language. Be wary of layout or overflow issues in the design. It's best to avoid designing where the amount of text would make or break a design. Character counts come into play with things like headlines, labels, and buttons. They are less of an issue with free flowing text such as body text or comments.
-- Be mindful of how colors are perceived - Colors are perceived differently across languages and cultures. The design should use color appropriately.
-- Formatting dates and currencies - Calendar dates are sometimes presented in different ways. Eg. "May 31, 2012" in the U.S. vs. "31 May 2012" in parts of Europe.
-- Do not concatenate translated strings - Do not do anything like `"The date today is " + date`. It will break in languages with different word order. Using template parameters instead.
+- 在 HTML 里使用 `lang` 属性。
+- 引导用户使用他们的母语 - 允许用户轻松修改他的国家或语言。
+- 图片里放文本不是一个可扩展的方法 - 在图片里放置文本仍旧是一种很受欢迎的方式，它可以在任意计算机上都展示好看的非系统字体。然而要翻译图片文本的话，每个文本字符串都需要为每种语言创建一个单独的图片。这样做的话数量稍微一多就会失控了。
+- 限制词语或句子的长度 - 某些内容在用另一种语言展示的时候会变得很长。在设计时一定要注意布局和溢出的问题。最好避免设计大量文本或者破坏设计。标题、标签和按钮等内容上的字符也属于考虑范围。但对于自然流动的文本如正文文本和评论来说，它们就不那么重要了。
+- 注意颜色是如何被感知的 - 不同的语言和文化对颜色的感知是不同的。设计应该适当地使用颜色。
+- 格式化日期和货币 - 日历日期有时需要以不同的方式呈现。例如 “May 31, 2012” 是美国呈现方式，“31 May 2012” 是部分欧洲国家的呈现方式。
+- 不要连接翻译的字符串 - 千万不要出现这种情况：`"The date today is " + date`。它会以不同的单词顺序出现在不同的语言中。所以尽量使用模板参数替代。
 
-###### References
+###### 参考
 
 - https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites
 
-#### What are `data-` attributes good for?
+#### `data-` （标签）属性有什么好处？
 
-Before JavaScript frameworks became popular, front end developers used `data-` attributes to store extra data within the DOM itself, without other hacks such as non-standard attributes, extra properties on the DOM. It is intended to store custom data private to the page or application, for which there are no more appropriate attributes or elements.
+在 JavaScript 框架流行之前，前端开发者普遍使用 `data-` （标签）属性将额外的数据存储在 DOM 本身，而无需在 DOM 上添加其他非标准的（标签）属性或者额外的（对象）属性。这么做的目的是将自定义数据存储到页面或应用当中，因为已经没有更合适的（标签）属性或元素来存储它们了。
 
-These days, using `data-` attributes is not encouraged. One reason is that users can modify the data attribute easily by using inspect element in the browser. The data model is better stored within JavaScript itself and stay updated with the DOM via data binding possibly through a library or a framework.
+目前，已经不鼓励使用 `data-`（标签）属性了。其中一个原因就是用户可以使用检查浏览器元素功能，轻易地改变这个数据属性。而数据模型可以更好地存储在 JavaScript 内部，并且有可能使用一个库或框架，通过数据绑定来更新 DOM。
 
-###### References
+###### 参考
 
 - http://html5doctor.com/html5-custom-data-attributes/
 
-#### Consider HTML5 as an open web platform. What are the building blocks of HTML5?
+#### 把 HTML5 看作一个开放的 Web 平台。那么 HTML5 由哪几块组成？
 
-- Semantics - Allowing you to describe more precisely what your content is.
-- Connectivity - Allowing you to communicate with the server in new and innovative ways.
-- Offline and storage - Allowing webpages to store data on the client-side locally and operate offline more efficiently.
-- Multimedia - Making video and audio first-class citizens in the Open Web.
-- 2D/3D graphics and effects - Allowing a much more diverse range of presentation options.
-- Performance and integration - Providing greater speed optimization and better usage of computer hardware.
-- Device access - Allowing for the usage of various input and output devices.
-- Styling - Letting authors write more sophisticated themes.
+- 语义化 - 允许你更精确地描述内容是什么。
+- 连通性 - 允许你用新型的方式与服务器通信。
+- 离线存储 - 允许 Web 页面在本地客户端存储数据，并更有效地离线操作
+- 多媒体 - 使视频和音频在开放的 Web 中成为头等公民。
+- 2D/3D 图形及效果 - 允许更多样化的展示选项。
+- 性能与集成 - 提供更快的速度优化，更好地使用计算机硬件。
+- 设备访问 - 允许使用各种输入输出设备。
+- 样式 - 让开发者写出更复杂的主题。
 
-###### References
+###### 参考
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
 
-#### Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.
+#### 描述 `cookie`、`sessionStorage` 和 `localStorage` 之间的区别
 
-All the above mentioned technologies are key-value storage mechanisms on the client side. They are only able to store values as strings.
+上面提到的技术都是客户端的键值存储机制。它们都只能将值存储为字符串。
 
 |  |`cookie`|`localStorage`|`sessionStorage`|
 |--|--|--|--|
-| Initiator | Client or server. Server can use `Set-Cookie` header | Client | Client |
-| Expiry | Manually set | Forever | On tab close |
-| Persistent across browser sessions | Depends on whether expiration is set | Yes | No |
-| Have domain associated | Yes | No | No |
-| Sent to server with every HTTP request| Cookies are automatically being sent via `Cookie` header | No | No |
-| Capacity (per domain) | 4kb | 5MB | 5MB |
-| Accessibility | Any window | Any window | Same tab |
+| 发起方 | 客户端或服务器。服务器可以使用 `Set-Cookie` 头部。 | 客户端 | 客户端 |
+| 过期时间 | 手动设置 | 永久 | 标签页关闭 |
+| 跨浏览器持久会话 | 取决于是否设置过期时间 | 是 | 否 |
+| 是否域相关 | 是 | 否 | 否 |
+| 跟随每个 HTTP 请求发送到服务器| 所有 Cookie 都会通过 `Cookie` 头部自动发送 | 否 | 否 |
+| 最大容量（每个域） | 4kb | 5MB | 5MB |
+| 可访问性 | 所有窗口 | 所有窗口 | 同标签页 |
 
-###### References
+###### 参考
 
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 - http://tutorial.techaltum.com/local-and-session-storage.html
 
-#### Describe the difference between `<script>`, `<script async>` and `<script defer>`.
+#### 描述 `<script>`、`<script async>` 和 `<script defer>` 之间的区别
 
-- `<script>` - HTML parsing is blocked, the script is fetched and executed immediately, HTML parsing resumes after the script is executed.
-- `<script async>` - The script will be fetched in parallel to HTML parsing and executed as soon as it is available (potentially before HTML parsing completes). Use `async` when the script is independent of any other scripts on the page, for example analytics.
-- `<script defer>` - The script will be fetched in parallel to HTML parsing and executed when the page has finished parsing. If there are multiple of them, each deferred script is executed in the order they were encoun­tered in the document. If a script relies on a fully-parsed DOM, the `defer` attribute will be useful in ensuring that the HTML is fully parsed before executing. There's not much difference from putting a normal `<script>` at the end of `<body>`. A deferred script must not contain `document.write`.
+- `<script>` - HTML 解析会被阻塞，脚本会被获取并立即执行，执行完毕后 HTML 解析恢复。
+- `<script async>` - 脚本获取将与 HTML 解析并行，并在其可用时执行（可能在 HTML 解析完成之前）。当脚本独立于页面上其他脚本时，建议使用 `async`， 比如分析脚本。  
+- `<script defer>` - 脚本获取将与 HTML 解析并行，并在页面完成解析时执行。如果有多个这样的脚本，那么每个延迟脚本会按照其在文档中的记录顺序来执行。如果脚本依赖完整解析的 DOM，那么 `defer` 属性就会很有用，它确保了在脚本执行之前 HTML 完整解析。这么做其实和将一个普通的 `<script>` 放到 `<body>` 的后面没有太大的区别。但是一个延迟脚本不能包含 `document.write`。
 
-Note: The `async` and `defer` attrib­utes are ignored for scripts that have no `src` attribute.
+注意：没有 `src` 属性的 script 标签，`async` 和 `defer` 属性都会被忽略。
 
-###### References
+###### 参考
 
 - http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
 - https://bitsofco.de/async-vs-defer/
 
-#### Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?
+#### 为什么通常认为最好将 CSS 的 `<link>` 标签放在 `<head></head>` 标签之间，将 JS 的 `<script>` 标签放在 `</body>` 标签之前？你知道有什么例外吗？
 
-**Placing `<link>`s in the `<head>`**
+**将 `<link>` 标签放在 `<head>` 标签里**
 
-Putting `<link>`s in the head is part of the specification. Besides that, placing at the top allows the page to render progressively which improves user experience. The problem with putting stylesheets near the bottom of the document is that it prohibits progressive rendering in many browsers, including Internet Explorer. Some browsers block rendering to avoid having to repaint elements of the page if their styles change. The user is stuck viewing a blank white page. It prevents the flash of unstyled contents.
+将 `<link>` 标签放到头部标签里是规范的一部分。除此之外，放在顶部还使得页面可以渐进式渲染，从而提高用户体验。将样式表放在文档底部的问题在于，它禁止在许多浏览器中进行渐进式渲染，包括Internet Explorer。一些浏览器还会阻止渲染，以避免在样式改变时重新绘制页面元素。用户在这种情况下会卡到一个空白的白色页面。所以放到顶部避免了未添加样式内容的闪现。
 
-**Placing `<scripts>`s just before `<body>`**
+**将 `<script>` 标签放在 `<body>` 标签之前**
 
-`<script>`s block HTML parsing while they are being downloaded and executed. Downloading the scripts at the bottom will allow the HTML to be parsed and displayed to the user first.
+`<script>` 脚本会在下载和执行的时候阻塞 HTML 解析。在页面底部下载脚本可使 HTML 页面第一时间解析完成并呈现给用户。
 
-An exception for positioning of `<script>`s at the bottom is when your script contains `document.write()`, but these days it's not a good practice to use `document.write()`. Also, placing `<script>`s at the bottom means that the browser cannot start downloading the scripts until the entire document is parsed. One possible workaround is to put `<script>` in the `<head>` and use the `defer` attribute.
+当脚本里包含 `document.write()` 的时候就不可以将 `<script>` 放到底部了，但使用 `document.write()` 并不是一个好的实践方法。而且，将 `<script>` 放到页面底部意味着浏览器在整个文档完成解析之前都不能开始下载脚本。还有一个可能的解决方案是，将 `<script>` 标签放到 `<head>` 里并使用 `defer` 属性。
 
-###### References
+###### 参考
+ https://developer.yahoo.com/performance/rules.html#css_top
 
-- https://developer.yahoo.com/performance/rules.html#css_top
+#### 什么是渐进式渲染？
 
-#### What is progressive rendering?
+渐进式渲染是用来提高网页性能（特别是提高感知加载时间）的技术，以使内容尽可能快地渲染完成并展示。
 
-Progressive rendering is the name given to techniques used to improve performance of a webpage (in particular, improve perceived load time) to render content for display as quickly as possible.
+过去在宽带互联网时代渐进式渲染更加流行，但在现代开发当中它仍然十分有用，因为移动互联网变得越来越受欢迎（并且不可靠）！
 
-It used to be much more prevalent in the days before broadband internet but it is still useful in modern development as mobile data connections are becoming increasingly popular (and unreliable)!
+这种技术的例子有：
 
-Examples of such techniques:
+- 图片懒加载 - 页面上的图片并非一次性加载完。当用户滚动页面到需要展示图片部分的时候，才使用 JavaScript 来加载图片。
+- 对可见内容进行优先级排序（或者首屏渲染） - 只需为了首先在用户浏览器当中渲染的页面，引入所必需的最少的样式、内容和脚本，以便尽可能快地展示页面，之后就可以使用延迟脚本或者监听 `DOMContentLoaded`/`load` 事件来加载其他资源和内容。
+- 异步 HTML 片段 - 由于页面是在后端构建的，所以能把一部分 HTML 内容刷新到浏览器上。更多技术细节可以访问[这里](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/)。
 
-- Lazy loading of images - Images on the page are not loaded all at once. JavaScript will be used to load an image when the user scrolls into the part of the page that displays the image.
-- Prioritizing visible content (or above-the-fold rendering) - Include only the minimum CSS/content/scripts necessary for the amount of page that would be rendered in the users browser first to display as quickly as possible, you can then use deferred scripts or listen for the `DOMContentLoaded`/`load` event to load in other resources and content.
-- Async HTML fragments - Flushing parts of the HTML to the browser as the page is constructed on the back end. More details on the technique can be found [here](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/).
-
-###### References
+###### 参考
 
 - https://stackoverflow.com/questions/33651166/what-is-progressive-rendering
 - http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/
 
-#### Have you used different HTML templating languages before?
+#### 你之前使用过不同的 HTML 模板语言吗？
 
-Yes, Jade, ERB, Slim, Handlebars, Jinja, Liquid, just to name a few. In my opinion, they are more or less the same and provide similar functionality of escaping content and helpful filters for manipulating the data to be displayed. Most templating engines will also allow you to inject your own filters in the event you need custom processing before display.
+当然，举几个例子，Jade、ERB、Slim、Handlebars、Jinja 和 Liquid，它们或多或少都提供了类似的功能，用于转义内容，提供有用的过滤器来操纵需要展示的数据。大多数模板引擎还允许你在显示内容之前，在需要自定义处理的事件中注入自己的过滤器。
 
-### Other Answers
+### 其他答案
 
 - https://neal.codes/blog/front-end-interview-questions-html/
 - http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
 
-## CSS Questions
+## CSS 问题
 
-Answers to [Front-end Job Interview Questions - CSS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions#css-questions). Pull requests for suggestions and corrections are welcome!
+这个部分是对 [Front-end Job Interview Questions - CSS Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions#css-questions) 的解答，欢迎提 Pull Request 进行建议和纠正！
 
-#### What is the difference between classes and IDs in CSS?
+#### 在 CSS 里，类 和 ID 选择器的区别是什么？
 
-- **IDs** - Meant to be unique within the document. Can be used to identify an element when linking using a fragment identifier. Elements can only have one `id` attribute.
-- **Classes** - Can be reused on multiple elements within the document. Mainly for styling and targeting elements.
+- **ID 选择器** - 在文档里是唯一的。当使用片段标识符链接时，可以使用它来标识一个元素。每个元素只能拥有一个 `id` 属性。
+- **类选择器** - 可以在文档里的多个元素上重复使用。主要用来给元素添加样式或将元素作为目标。
 
 #### What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
 
