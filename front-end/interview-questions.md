@@ -197,26 +197,26 @@ XHTML 属于 XML 标记语言，和 HTML 是不一样的。一些差异如下�
 - **ID 选择器** - 在文档里是唯一的。当使用片段标识符链接时，可以使用它来标识一个元素。每个元素只能拥有一个 `id` 属性。
 - **类选择器** - 可以在文档里的多个元素上重复使用。主要用来给元素添加样式或将元素作为目标。
 
-#### What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
+#### “Resetting” 和 “Normalizing” 的 CSS 有什么区别？你会选择哪一种，为什么？
 
-- **Resetting** - Resetting is meant to strip all default browser styling on elements. For e.g. `margin`s, `padding`s, `font-size`s of all elements are reset to be the same. You will have to redeclare styling for common typographic elements.
-- **Normalizing** - Normalizing preserves useful default styles rather than "unstyling" everything. It also corrects bugs for common browser dependencies.
+- **Resetting** - Resetting 是为了去除元素上所有的浏览器默认样式。比如，所有元素的 `margin`、`padding` 和 `font-size` 都会被重置成一样的值。你将不得不为常见的排版元素重新声明样式。
+- **Normalizing** - Normalizing 会保存有用的默认样式，而不是“取消样式”。它还纠正了常见浏览器依赖的错误。
 
-I would choose resetting when I have very a customized or unconventional site design such that I need to do a lot of my own styling do not need any default styling to be preserved.
+当我需要一个非常定制化或者非传统的站点设计时，我会选择重置样式，这样我就可以做很多我自己的样式设计，而不需要保留任何默认样式。
 
-###### References
+###### 参考
 
 - https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css
 
-#### Describe `float`s and how they work.
+#### 描述什么是浮动以及它如何工作
 
-Float is a CSS positioning property. Floated elements remain a part of the flow of the page, and will affect the positioning of other elements (e.g. text will flow around floated elements), unlike `position: absolute` elements, which are removed from the flow of the page.
+浮动是 CSS 的一个位置属性。不同于会脱离文档流的 `position: absolute` 元素，浮动的元素仍然是页面流的一部分，并且会影响其他位置的元素（如文本将围绕浮动元素流动）。
 
-The CSS `clear` property can be used to be positioned below `left`/`right`/`both` floated elements.
+CSS 的 `clear` 属性可以用在浮动为 `left`/`right`/`both` 的元素下方。
 
-If a parent element contains nothing but floated elements, its height will be collapsed to nothing. It can be fixed by clearing the float after the floated elements in the container but before the close of the container.
+如果一个父级元素只包含浮动元素，那么它的高度就会被折叠为 0。这个问题可以在容器关闭之前，浮动元素的后面通过清除浮动来修复。
 
-The `.clearfix` hack uses a clever CSS pseudo selector (`:after`) to clear floats. Rather than setting the overflow on the parent, you apply an additional class `clearfix` to it. Then apply this CSS:
+`.clearfix` 这个 hack 类使用了 CSS 的伪类（`:after`）来清除浮动。相比在父元素上设置 overflow，添加一个额外的 `clearfix` 类是更好的办法。然后应用下面的 CSS：
 
 ```css
 .clearfix:after {
@@ -228,15 +228,15 @@ The `.clearfix` hack uses a clever CSS pseudo selector (`:after`) to clear float
 }
 ```
 
-Alternatively, give `overflow: auto` or `overflow: hidden` property to the parent element which will establish a new block formatting context inside the children and it will expand to contain its children.
+或者，给父元素添加一个 `overflow: auto` 或 `overflow: hidden` 的属性，这样就可以在子元素里建立一个新的区块格式化上下文，并使父元素展开包含它的子元素。
 
-###### References
+###### 参考
 
 - https://css-tricks.com/all-about-floats/
 
-#### Describe `z-index` and how stacking context is formed.
+#### 描述 `z-index` 以及堆叠上下文是如何表现的
 
-The `z-index` property in CSS controls the vertical stacking order of elements that overlap. `z-index` only effects elements that have a `position` value which is not `static`.
+CSS 里的 `z-index` 属性控制重叠元素的垂直叠加顺序。但 `z-index` 只影响 `position` 值不是 `static` 的元素。
 
 Without any `z-index` value, elements stack in the order that they appear in the DOM (the lowest one down at the same hierarchy level appears on top). Elements with non-static positioning (and their children) will always appear on top of elements with default static positioning, regardless of HTML hierarchy.
 
