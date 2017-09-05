@@ -114,7 +114,7 @@ XHTML 属于 XML 标记语言，和 HTML 是不一样的。一些差异如下�
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
 
-#### 描述 `cookie`、`sessionStorage` 和 `localStorage` 之间的区别
+#### 描述 `cookie`、`sessionStorage` 和 `localStorage` 之间的区别。
 
 上面提到的技术都是客户端的键值存储机制。它们都只能将值存储为字符串。
 
@@ -133,7 +133,7 @@ XHTML 属于 XML 标记语言，和 HTML 是不一样的。一些差异如下�
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 - http://tutorial.techaltum.com/local-and-session-storage.html
 
-#### 描述 `<script>`、`<script async>` 和 `<script defer>` 之间的区别
+#### 描述 `<script>`、`<script async>` 和 `<script defer>` 之间的区别。
 
 - `<script>` - HTML 解析会被阻塞，脚本会被获取并立即执行，执行完毕后 HTML 解析恢复。
 - `<script async>` - 脚本获取将与 HTML 解析并行，并在其可用时执行（可能在 HTML 解析完成之前）。当脚本独立于页面上其他脚本时，建议使用 `async`， 比如分析脚本。  
@@ -197,10 +197,10 @@ XHTML 属于 XML 标记语言，和 HTML 是不一样的。一些差异如下�
 - **ID 选择器** - 在文档里是唯一的。当使用片段标识符链接时，可以使用它来标识一个元素。每个元素只能拥有一个 `id` 属性。
 - **类选择器** - 可以在文档里的多个元素上重复使用。主要用来给元素添加样式或将元素作为目标。
 
-#### “Resetting” 和 “Normalizing” 的 CSS 有什么区别？你会选择哪一种，为什么？
+#### “重置” 和 “标准化” 的 CSS 有什么区别？你会选择哪一种，为什么？
 
-- **Resetting** - Resetting 是为了去除元素上所有的浏览器默认样式。比如，所有元素的 `margin`、`padding` 和 `font-size` 都会被重置成一样的值。你将不得不为常见的排版元素重新声明样式。
-- **Normalizing** - Normalizing 会保存有用的默认样式，而不是“取消样式”。它还纠正了常见浏览器依赖的错误。
+- **重置** - 重置样式是为了去除元素上所有的浏览器默认样式。比如，所有元素的 `margin`、`padding` 和 `font-size` 都会被重置成一样的值。你将不得不为常见的排版元素重新声明样式。
+- **标准化** - 标准化样式会保存有用的默认样式，而不是“取消样式”。它还纠正了常见浏览器依赖的错误。
 
 当我需要一个非常定制化或者非传统的站点设计时，我会选择重置样式，这样我就可以做很多我自己的样式设计，而不需要保留任何默认样式。
 
@@ -208,7 +208,7 @@ XHTML 属于 XML 标记语言，和 HTML 是不一样的。一些差异如下�
 
 - https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css
 
-#### 描述什么是浮动以及它如何工作
+#### 描述什么是浮动以及它如何工作。
 
 浮动是 CSS 的一个位置属性。不同于会脱离文档流的 `position: absolute` 元素，浮动的元素仍然是页面流的一部分，并且会影响其他位置的元素（如文本将围绕浮动元素流动）。
 
@@ -234,87 +234,87 @@ CSS 的 `clear` 属性可以用在浮动为 `left`/`right`/`both` 的元素下�
 
 - https://css-tricks.com/all-about-floats/
 
-#### 描述 `z-index` 以及堆叠上下文是如何表现的
+#### 描述 `z-index` 以及堆叠上下文是如何表现的。
 
 CSS 里的 `z-index` 属性控制重叠元素的垂直叠加顺序。但 `z-index` 只影响 `position` 值不是 `static` 的元素。
 
-Without any `z-index` value, elements stack in the order that they appear in the DOM (the lowest one down at the same hierarchy level appears on top). Elements with non-static positioning (and their children) will always appear on top of elements with default static positioning, regardless of HTML hierarchy.
+没有任何 `z-index` 值的情况下，元素将按照出现在 DOM 里的顺序进行堆叠（在相同的层级上，最低的一个层级出现在顶部）。非静态位定位的元素（及它们的子元素）总是会出现在静态定位元素的顶部，而不用理会 HTML 的层级。
 
-A stacking context is an element that contains a set of layers. Within a local stacking context, the `z-index` values of its children are set relative to that element rather than to the document root. Layers outside of that context — i.e. sibling elements of a local stacking context — can't sit between layers within it. If an element B sits on top of element A, a child element of element A, element C, can never be higher than element B even if element C has a higher `z-index` than element B.
+堆叠上下文是包含了一组图层的元素。在本地的堆叠上下文元素里，其子元素的 `z-index` 值是相对于该元素而不是根文档设置的。在上下文之外的图层（如一个本地堆叠上下文的相邻元素）不能出现在上下文里面的图层之间。如果一个元素 B 在元素 A 的顶部，那么 A 元素的子元素 C 即使有比 B 元素更高的 `z-index` 值，也不能出现在 B 元素的顶部。
 
-Each stacking context is self-contained - after the element's contents are stacked, the whole element is considered in the stacking order of the parent stacking context. A handful of CSS properties trigger a new stacking context, such as `opacity` less than 1, `filter` that is not `none`, and `transform that is not `none`.
+每个堆叠上下文都是自包含的，在元素内容形成堆叠后，整个元素都会以在父级堆叠上下文中的顺序进行考虑。一些 CSS 属性会触发一个新的堆叠上下文，比如 `opacity` 小于 1 、`filter` 不是 `none`、以及 `transform` 不是 `none` 的时候。
 
-###### References
+###### 参考
 
 - https://css-tricks.com/almanac/properties/z/z-index/
 - https://philipwalton.com/articles/what-no-one-told-you-about-z-index/
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
 
-#### Describe Block Formatting Context (BFC) and how it works.
+#### 描述块格式化上下文（BFC）以及它如何工作。
 
-A Block Formatting Context (BFC) is part of the visual CSS rendering of a web page in which block boxes are laid out. Floats, absolutely positioned elements, `inline-blocks`, `table-cells`, `table-caption`s, and elements with `overflow` other than `visible` (except when that value has been propagated to the viewport) establish new block formatting contexts.
+一个块格式化上下文（BFC）是 Web 页面的可视化 CSS 渲染出的一部分。浮动元素、绝对定位元素、内联块元素（`inline-block`）、表格单元格（`table-cell`）、表格标题（`table-caption`）、以及具有 `overflow` 且值不是 `visible` 的块元素（除非该值传递到 viewport）创建出新的块格式化上下文。
 
-A BFC is an HTML box that satisfies at least one of the following conditions:
+一个块格式化上下文是一个至少满足下列条件之一的 HTML 盒模型：
 
-- The value of `float` is not `none`.
-- The value of `position` is neither `static` nor `relative`.
-- The value of `display` is `table-cell`, `table-caption`, `inline-block`, `flex`, or `inline-flex`.
-- The value of `overflow` is not `visible`.
+- `float` 的值不是 `none`。
+- `position` 的值不是 `static` 或 `relative`。
+- `display` 的值是 `table-cell`、`table-caption`、`inline-block`、`flex` 或 `inline-flex`。
+- `overflow` 的值不是 `visible`。
 
-In a BFC, each box's left outer edge touches the left edge of the containing block (for right-to-left formatting, right edges touch).
+在一个块格式化上下文里，每个盒模型的左外边缘都会接触到容器块的左边缘（对于从右到左的格式来说，右外边缘接触）。
 
-Vertical margins between adjacent block-level boxes in a BFC collapse. Read more on [collapsing margins](https://www.sitepoint.com/web-foundations/collapsing-margins/).
+一个块格式化上下文里相邻块级盒模型之间的垂直边距，可以在 [collapsing margins](https://www.sitepoint.com/web-foundations/collapsing-margins/) 里了解更多。
 
-###### References
+###### 参考
 
 - https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
 - https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
 
-#### What are the various clearing techniques and which is appropriate for what context?
+#### 有哪些不同的清理技术？哪种技术适用于哪些上下文？
 
-- Empty `div` method - `<div style="clear:both;"></div>`.
-- Clearfix method - Refer to the `.clearfix` class above.
-- `overflow: auto` or `overflow: hidden` method - Parent will establish a new block formatting context and expand to contains its floated children.
+- 添加空 `div` 方法 - `<div style="clear:both;"></div>`。
+- Clearfix 方法 - 请看上述的 `.clearfix` 类。
+- `overflow: auto` 或 `overflow: hidden` 方法 - 父级元素会建立一个新的格式化上下文并展开以包含浮动的子元素。
 
-In large projects, I would write a utility `.clearfix` class and use them in places where I need it. `overflow: hidden` might clip children if the children is taller than the parent and is not very ideal.
+在大型项目里，我倾向于写一个通用 `.clearfix` 类 ，并在需要的地方使用。如果子元素比父元素高的话，`overflow: hidden` 就有可能会截掉一部分子元素，这就非常不理想了。
 
-#### Explain CSS sprites, and how you would implement them on a page or site.
+#### 解释一下 CSS sprites，并说明你如何在页面或站点上实现它们。
 
-CSS sprites combine multiple images into one single larger image. It is commonly used technique for icons (Gmail uses it). How to implement it:
+CSS sprites 把多张图片合并在一张单独的大图片里。这是一种常用于图标的技术（Gmail 使用了它）。如何实现它：
 
-1. Use a sprite generator that packs multiple images into one and generate the appropriate CSS for it.
-1. Each image would have a corresponding CSS class with `background-image`, `background-position` and `background-size` properties defined.
-1. To use that image, add the corresponding class to your element.
+1. 使用 sprite 生成器，将多张图片打包成一张并为其生成合适的 CSS。
+1. 每张图片都将有一个关联的 CSS 类，并定义 `background-image`、`background-position` 和 `background-size` 属性。
+1. 要使用哪张图片，就将关联的 CSS 类添加到元素上。
 
-**Advantages:**
+**优点：**
 
-- Reduce the number of HTTP requests for multiple images (only one single request is required per spritesheet). But with HTTP2, loading multiple images is no longer much of an issue.
-- Advance downloading of assets that won't be downloaded until needed, such as images that only appear upon `:hover` pseudo-states. Blinking wouldn't be seen.
+- 减少多张图片的大量 HTTP 请求（每个 sprite 只需一个请求）。但对于 HTTP2 来说，加载大量图片已经不是太大的问题了。
+- 提前下载那些之前在需要时才会下载的资源，比如只出现在伪类 `:hover` 上的图片。解决了闪屏的问题。
 
-#### What are your favorite image replacement techniques and which do you use when?
+#### 你最喜欢的图片替换技术是哪些？不同情况下你应该各自使用哪一个？
 
-CSS image replacement is a technique of replacing a text element (usually a header tag like an `<h1>`) with an image (often a logo). It has its origins in the time before web fonts and SVG. For years, web developers battled against browser inconsistencies to craft image replacement techniques that struck the right balance between design and accessibility.
+CSS 图片替换技术是用一张图片（经常是一个 logo）来替换文本元素（通常用在 `<h1>` 这类的头部标签）。它起源于 Web font 和 SVG 之前。多年来，Web 开发者一直在使用图片替换技术来与浏览器的不一致性作斗争，从而在设计和可访问性之间取得正确的平衡。
 
-It's not really relevant these days. Check out the link below for all the available techniques.
+目前来说这都已经不是真正相关的技术了。查看下面的链接获取所有可用的技术。
 
-###### References
+###### 参考
 
 - https://css-tricks.com/the-image-replacement-museum/
 
-#### How would you approach fixing browser-specific styling issues?
+#### 如何处理特定于浏览器的样式问题？
 
-- After identifying the issue and the offending browser, use a separate style sheet that only loads when that specific browser is being used. This technique requires server-side rendering though.
-- Use libraries like Bootstrap that already handles these styling issues for you.
-- Use `autoprefixer` to automatically add vendor prefixes to your code.
-- Use Reset CSS or Normalize.css.
+- 在识别出问题及对应浏览器后，写一个分离的样式表，只在特定浏览器里加载使用。不过这种技术需要服务端渲染来实现。
+- 使用已经解决了这些样式问题的库，如 Bootstrap。
+- 使用 `autoprefixer` 来给代码自动添加浏览器引擎前缀。
+- 使用重置 CSS 或标准化 CSS。
 
-#### How do you serve your pages for feature-constrained browsers? What techniques/processes do you use?
+#### 如何为功能受限的浏览器提供页面？你使用什么技术或方法？
 
-- Graceful degradation - The practice of building an application for modern browsers while ensuring it remains functional in older browsers.
-- Progressive enhancement - The practice of building an application for a base level of user experience, but adding functional enhancements when a browser supports it.
-- Use [caniuse.com](https://caniuse.com/) to check for feature support.
-- Autoprefixer for automatic vendor prefix insertion.
-- Feature detection using [Modernizr](https://modernizr.com/).
+- 优雅降级 - 为现代浏览器构建应用程序的实践，同时确保它在旧的浏览器中依然有效。
+- 渐进式增强 - 为基本用户体验构建应用程序的实践，但在浏览器支持的时候添加功能增强。
+- 使用 [caniuse.com](https://caniuse.com/) 检查特性的支持度。
+- 使用 `autoprefixer` 来给代码自动添加浏览器引擎前缀。
+- 使用 [Modernizr](https://modernizr.com/) 来做特性检测。
 
 #### What are the different ways to visually hide content (and make it available only for screen readers)?
 
